@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="JanuaryAppTheme" parent="AppTheme">
+        <item name="android:colorPrimary">@color/january_colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/january_colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/january_colorAccent</item>
+    </style>
+
+      <style name="FebruaryAppTheme" parent="AppTheme">
+        <item name="android:colorPrimary">@color/february_colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/february_colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/february_colorAccent</item>
+    </style>
+
+      <style name="MarchAppTheme" parent="AppTheme">
+        <item name="android:colorPrimary">@color/march_colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/march_colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/march_colorAccent</item>
+    </style>
+
+      <style name="AprilAppTheme" parent="AppTheme">
+        <item name="android:colorPrimary">@color/april_colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/april_colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/april_colorAccent</item>
+    </style>
+
+      <style name="MayAppTheme" parent="AppTheme">
+        <item name="android:colorPrimary">@color/may_colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/may_colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/may_colorAccent</item>
+    </style>
+
+      <style name="JuneAppTheme" parent="AppTheme">
+        <item name="android:colorPrimary">@color/june_colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/june_colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/june_colorAccent</item>
+    </style>
+
+      <style name="JulyAppTheme" parent="AppTheme">
+        <item name="android:colorPrimary">@color/july_colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/july_colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/july_colorAccent</item>
+    </style>
+
+      <style name="AugustAppTheme" parent="AppTheme">
+        <item name="android:colorPrimary">@color/august_colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/august_colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/august_colorAccent</item>
+    </style>
+
+      <style name="SeptemberAppTheme" parent="AppTheme">
+        <item name="android:colorPrimary">@color/september_colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/september_colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/september_colorAccent</item>
+    </style>
+
+       <style name="OctoberAppTheme" parent="AppTheme">
+        <item name="android:colorPrimary">@color/october_colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/october_colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/october_colorAccent</item>
+    </style>
+
+       <style name="NovemberAppTheme" parent="AppTheme">
+        <item name="android:colorPrimary">@color/november_colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/november_colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/november_colorAccent</item>
+    </style>
+
+       <style name="DecemberAppTheme" parent="AppTheme">
+        <item name="android:colorPrimary">@color/december_colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/december_colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/december_colorAccent</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="january_colorPrimary">#00796B</color>
+    <color name="january_colorPrimaryDark">#00695C</color>
+    <color name="january_colorAccent">#00897B</color>
+
+    <color name="february_colorPrimary">#039BE5</color>
+    <color name="february_colorPrimaryDark">#0288D1</color>
+    <color name="february_colorAccent">#03A9F4</color>
+
+    <color name="march_colorPrimary">#00897B</color>
+    <color name="march_colorPrimaryDark">#00796B</color>
+    <color name="march_colorAccent">#00897B</color>
+
+    <color name="april_colorPrimary">#388E3C</color>
+    <color name="april_colorPrimaryDark">#2E7D32</color>
+    <color name="april_colorAccent">#43A047</color>
+
+    <color name="may_colorPrimary">#689F38</color>
+    <color name="may_colorPrimaryDark">#558B2F</color>
+    <color name="may_colorAccent">#7CB342</color>
+
+    <color name="june_colorPrimary">#039BE5</color>
+    <color name="june_colorPrimaryDark">#0277BD</color>
+    <color name="june_colorAccent">#03A9F4</color>
+
+    <color name="july_colorPrimary">#0097A7</color>
+    <color name="july_colorPrimaryDark">#00838F</color>
+    <color name="july_colorAccent">#00ACC1</color>
+
+    <color name="august_colorPrimary">#FF9800</color>
+    <color name="august_colorPrimaryDark">#F57C00</color>
+    <color name="august_colorAccent">#FFB74D</color>
+
+    <color name="september_colorPrimary">#C0CA33</color>
+    <color name="september_colorPrimaryDark">#AFB42B</color>
+    <color name="september_colorAccent">#CDDC39</color>
+
+    <color name="october_colorPrimary">#FFA000</color>
+    <color name="october_colorPrimaryDark">#FF8F00</color>
+    <color name="october_colorAccent">#FFB300</color>
+
+    <color name="november_colorPrimary">#78909C</color>
+    <color name="november_colorPrimaryDark">#607D8B</color>
+    <color name="november_colorAccent">#90A4AE</color>
+
+    <color name="december_colorPrimary">#607D8B</color>
+    <color name="december_colorPrimaryDark">#546E7A</color>
+    <color name="december_colorAccent">#78909C</color>
+
+
+</resources>
