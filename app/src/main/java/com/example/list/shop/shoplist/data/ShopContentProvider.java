@@ -94,6 +94,7 @@ public class ShopContentProvider extends ContentProvider {
                 } else {
                     selection = selection + " AND " + ShopItemDBModel._ID + " = " + id;
                 }
+                //ddd
                 break;
             default:
                 throw new IllegalArgumentException("Wrong URI: " + uri);
