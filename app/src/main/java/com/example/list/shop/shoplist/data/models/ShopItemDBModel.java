@@ -16,6 +16,7 @@ public class ShopItemDBModel {
     public static final String IS_ARCHIVE          = "is_archive";
     public static final String IS_DELEETE          = "is_delete";
 
+    public static final int COL_ID                 = 0;
     public static final int COL_TITLE              = 1;
     public static final int COL_DESCRIPTION        = 2;
     public static final int COL_DATE               = 3;

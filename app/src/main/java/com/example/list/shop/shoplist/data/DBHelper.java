@@ -23,14 +23,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ShopItemDBModel.DB_CREATE);
-        ContentValues cv = new ContentValues();
-        for (int i = 1; i <= 13; i++) {
-            cv.put(ShopItemDBModel.TITLE, "TITLE " + i);
-            cv.put(ShopItemDBModel.DESCRIPTION, "DESC " + i);
-            cv.put(ShopItemDBModel.DATE, new Date().getTime());
-
-            db.insert(ShopItemDBModel.TABLE_NAME, null, cv);
-        }
+//        ContentValues cv = new ContentValues();
+//        for (int i = 1; i <= 13; i++) {
+//            cv.put(ShopItemDBModel.TITLE, "TITLE " + i);
+//            cv.put(ShopItemDBModel.DESCRIPTION, "DESC " + i);
+//            cv.put(ShopItemDBModel.DATE, new Date().getTime());
+//
+//            db.insert(ShopItemDBModel.TABLE_NAME, null, cv);
+//        }
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

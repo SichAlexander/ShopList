@@ -24,25 +24,34 @@ import com.example.list.shop.shoplist.SeasonColorManager;
 import com.example.list.shop.shoplist.SeasonThemeModel;
 import com.example.list.shop.shoplist.data.models.ShopItem;
 import com.example.list.shop.shoplist.data.models.ShopItemDBModel;
+import com.example.list.shop.shoplist.ui.adapters.ShopListAdapter;
 import com.example.list.shop.shoplist.ui.fragments.DetailFragment;
 import com.example.list.shop.shoplist.ui.fragments.ShopListFragment;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.TimeZone;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, ShopListFragment.Callback {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener,ShopListAdapter.Callback {
 
     private static final int SHOP_LIST_LOADER = 0;
     private static Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
     private static final String DETAIL_FRAGMENT_TAG = "DF_TAG";
     private static final String MAIN_FRAGMENT_TAG = "MAIN_TAG";
+    private final String QUERY_IS_ARCHIVE   = ShopItemDBModel.IS_ARCHIVE + " = 1";
+    private final String QUERY_IS_DELETE    = ShopItemDBModel.IS_DELEETE + " = 1";
+    private final String QUERY_REMINDERS    = ShopItemDBModel.TIME_REMIND + " > 0";
+
+
+    private final String ORDER_BY_ID        = ShopItemDBModel._ID;
+    private final String ORDER_BY_ARCHIVE   = ShopItemDBModel._ID + ", " +ShopItemDBModel.IS_ARCHIVE + " ASC";
+    private final String ORDER_BY_DELETE    = ShopItemDBModel._ID + ", " +ShopItemDBModel.IS_DELEETE;
+
 
 
     private SeasonThemeModel mThemeModel;
-    private boolean mTwoPane;
+    public boolean mTwoPane;
     private LinearLayout mNavigationHeader;
     private FloatingActionButton mFloatingActionButton;
     private NavigationView mNavigationView;
@@ -59,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setColorTheme();
         initMainToolbar();
         showFragments(savedInstanceState);
+        showShopListFragment(null,null);
         setListeners();
         setHeaderDate();
     }
@@ -79,14 +89,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showFragments(Bundle savedInstanceState) {
-        showShopListFragment(savedInstanceState);
+        showShopListFragment(null,null);
 
         if (findViewById(R.id.detail_container_fl_main_activity) != null){
             mTwoPane = true;
             showDetailFragment(savedInstanceState);
         } else {
             mTwoPane = false;
-            getSupportActionBar().setElevation(0f);
         }
     }
 
@@ -101,9 +110,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showShopListFragment(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.main_container_fl_main_activity, new ShopListFragment(), MAIN_FRAGMENT_TAG)
+                    .replace(R.id.main_container_fl_main_activity, ShopListFragment.newInstance(null, null), MAIN_FRAGMENT_TAG)
                     .commit();
         }
+    }
+    private void showShopListFragment(final String query, final String orderBy) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_container_fl_main_activity, ShopListFragment.newInstance(query, orderBy), null)
+                    .commit();
+
     }
 
     @Override
@@ -144,10 +159,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mToolbar                    = (Toolbar) findViewById(R.id.toolbar_activity_new_item);
         mFloatingActionButton       = (FloatingActionButton) findViewById(R.id.new_shop_item_fab_main_activity);
         mDrawerLayout               = (DrawerLayout) findViewById(R.id.drawer_layout_main_activity);
-        findHeaderdUI(mDrawerLayout);
+        findHeaderUI(mDrawerLayout);
     }
 
-    private void findHeaderdUI(DrawerLayout layout) {
+    private void findHeaderUI(DrawerLayout layout) {
         mNavigationHeader           = (LinearLayout) layout.findViewById(R.id.background_header_ll_nav_header);
         mHeaderMonth                = (TextView) layout.findViewById(R.id.month_tv_navigation_header);
         mHeaderDay                  = (TextView) layout.findViewById(R.id.day_tv_navigation_header);
@@ -171,8 +186,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         menuItem.setChecked(true);
-        Toast.makeText(MainActivity.this, "temId:  " + menuItem.getItemId(), Toast.LENGTH_SHORT).show();
+        switch (menuItem.getItemId()){
+            case R.id.nav_shop_list:
+                Toast.makeText(MainActivity.this, " nav_shop_list ", Toast.LENGTH_SHORT).show();
+                showShopListFragment(null, ORDER_BY_ARCHIVE);
+                break;
+            case R.id.nav_archive:
+                Toast.makeText(MainActivity.this, " nav_archive ", Toast.LENGTH_SHORT).show();
+                showShopListFragment(QUERY_IS_ARCHIVE, ORDER_BY_ID);
+                break;
+            case R.id.nav_remiders:
+                Toast.makeText(MainActivity.this, " nav_remiders ", Toast.LENGTH_SHORT).show();
+                showShopListFragment(QUERY_REMINDERS, ORDER_BY_ARCHIVE);
+                break;
+            case R.id.nav_deleted:
+                Toast.makeText(MainActivity.this, " nav_deleted ", Toast.LENGTH_SHORT).show();
+                showShopListFragment(QUERY_IS_DELETE, ORDER_BY_ID);
+
+                break;
+        }
         mDrawerLayout.closeDrawers();
+
         return true;
     }
 

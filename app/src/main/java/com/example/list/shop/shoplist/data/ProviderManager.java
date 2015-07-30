@@ -25,26 +25,26 @@ import static com.example.list.shop.shoplist.data.models.ShopItemDBModel.TITLE;
  * Created by njaka on 7/17/2015.
  */
 public abstract class ProviderManager {
-    private String LOG_TAG = getClass().getName();
+    private static String LOG_TAG = "ProviderManager";
 
-    public void onClickInsert(final Context context, final ShopItem shopItem) {
+    public static void insert(final Context context, final ShopItem shopItem) {
         ContentValues cv = new ContentValues();
         cv.put(TITLE, shopItem.getTitle());
         cv.put(DESCRIPTION, shopItem.getDescription());
         cv.put(DATE, new Date().getTime());
-        cv.put(TIME_REMIND, shopItem.getDescription());
+        cv.put(TIME_REMIND, shopItem.getTimeRemind());
         cv.put(IS_ARCHIVE, shopItem.isArchive());
         cv.put(IS_DELEETE, shopItem.isDelete());
         Uri newUri = context.getContentResolver().insert(SHOP_LIST_CONTENT_URI, cv);
         Log.d(LOG_TAG, "insert, result Uri : " + newUri.toString());
     }
 
-    public void onClickUpdate(final Context context, final ShopItem shopItem) {
+    public static void update(final Context context, final ShopItem shopItem) {
         ContentValues cv = new ContentValues();
         cv.put(TITLE, shopItem.getTitle());
         cv.put(DESCRIPTION, shopItem.getDescription());
         cv.put(DATE, new Date().getTime());
-        cv.put(TIME_REMIND, shopItem.getDescription());
+        cv.put(TIME_REMIND, shopItem.getTimeRemind());
         cv.put(IS_ARCHIVE, shopItem.isArchive());
         cv.put(IS_DELEETE, shopItem.isDelete());
         Uri uri = ContentUris.withAppendedId(SHOP_LIST_CONTENT_URI, shopItem.getCurrentId());
@@ -52,13 +52,14 @@ public abstract class ProviderManager {
         Log.d(LOG_TAG, "update, count = " + cnt);
     }
 
-    public void onClickDelete(final Context context, final ShopItem shopItem) {
+    public static void  delete(final Context context, final ShopItem shopItem) {
         Uri uri = ContentUris.withAppendedId(SHOP_LIST_CONTENT_URI, shopItem.getCurrentId());
         int cnt = context.getContentResolver().delete(uri, null, null);
         Log.d(LOG_TAG, "delete, count = " + cnt);
     }
     public static ShopItem cursorToModel(final Cursor cursor){
         ShopItem shopItem = new ShopItem();
+        shopItem.setCurrentId(cursor.getInt(ShopItemDBModel.COL_ID));
         shopItem.setTitle(cursor.getString(ShopItemDBModel.COL_TITLE));
         shopItem.setDescription(cursor.getString(ShopItemDBModel.COL_DESCRIPTION));
         shopItem.setDate(cursor.getLong(ShopItemDBModel.COL_DATE));

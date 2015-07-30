@@ -5,6 +5,7 @@ package com.example.list.shop.shoplist;
  */
 public abstract class Constants {
     public static final String DATE_FULL_FORMAT         = "MM/dd/yyyy hh:mm:ss";
+    public static final String DATE_REMIND_FORMAT       = "MMMM dd, hh:mm";
     public static final String DATE_DAY_FORMAT          = "EEEE dd";
     public static final String DATE_MONTH_FORMAT        = "MMMM";
 

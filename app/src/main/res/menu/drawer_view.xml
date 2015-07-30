@@ -18,19 +18,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_shop_list"
             android:title="@string/shop_list"
             android:icon="@drawable/ic_shop_list"/>
         <item
-            android:id="@+id/nav_messages"
+            android:id="@+id/nav_remiders"
             android:title="@string/reminders"
             android:icon="@drawable/ic_reminders"/>
         <item
-            android:id="@+id/nav_friends"
+            android:id="@+id/nav_archive"
             android:title="@string/archive"
             android:icon="@drawable/ic_archive"/>
         <item
-            android:id="@+id/nav_discussion"
+            android:id="@+id/nav_deleted"
             android:title="@string/deleted"
             android:icon="@drawable/ic_delete"/>
     </group>

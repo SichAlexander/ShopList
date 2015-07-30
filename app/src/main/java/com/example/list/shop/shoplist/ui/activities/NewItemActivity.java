@@ -8,8 +8,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.list.shop.shoplist.Constants;
 import com.example.list.shop.shoplist.R;
 import com.example.list.shop.shoplist.SeasonColorManager;
+import com.example.list.shop.shoplist.data.models.ShopItem;
 import com.example.list.shop.shoplist.ui.fragments.DetailFragment;
 
 public class NewItemActivity extends AppCompatActivity {
@@ -24,8 +26,15 @@ public class NewItemActivity extends AppCompatActivity {
         findUI();
         mToolbar.setBackgroundColor(SeasonColorManager.getThemeModel(this).getPrimaryColor());
         initMainToolbar();
+        DetailFragment detailFragment;
+        if (getIntent().getSerializableExtra(Constants.PARAM_SHOP_ITEM)!= null)
+        {
+            detailFragment = DetailFragment.newInstance((ShopItem)(getIntent().getSerializableExtra(Constants.PARAM_SHOP_ITEM)));
+        } else {
+            detailFragment = new DetailFragment();
+        }
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.detail_container_fl_activity_new_item, new DetailFragment(), null)
+                .replace(R.id.detail_container_fl_activity_new_item, detailFragment, null)
                 .commit();
 
     }
@@ -56,9 +65,11 @@ public class NewItemActivity extends AppCompatActivity {
     public void initMainToolbar() {
         mToolbar.setTitle(R.string.app_name);
         setSupportActionBar(mToolbar);
+        if (getSupportActionBar() != null){
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

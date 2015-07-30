@@ -44,7 +44,7 @@ public class ShopContentProvider extends ContentProvider {
             case ShopItemDBModel.URI_SHOP_ITEMS: // общий Uri
                 Log.d(LOG_TAG, "URI_SHOP_ITEMS");
                 if (TextUtils.isEmpty(sortOrder)) {
-                    sortOrder = ShopItemDBModel.DATE + " ASC";
+                    sortOrder = ShopItemDBModel._ID + " DESC";
                 }
                 break;
             case ShopItemDBModel.URI_SHOP_ITEM: // Uri с ID
@@ -94,7 +94,6 @@ public class ShopContentProvider extends ContentProvider {
                 } else {
                     selection = selection + " AND " + ShopItemDBModel._ID + " = " + id;
                 }
-                //ddd   rt
                 break;
             default:
                 throw new IllegalArgumentException("Wrong URI: " + uri);

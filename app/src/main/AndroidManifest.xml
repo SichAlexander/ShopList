@@ -30,6 +30,7 @@
             android:name=".ui.activities.NewItemActivity"
             android:label="@string/title_activity_new_item" >
         </activity>
+        <receiver android:name=".AlarmReceiver"/>
     </application>
 
 </manifest>
